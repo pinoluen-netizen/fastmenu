@@ -105,6 +105,22 @@ http://localhost:8080
 
 For production-like access later, expose the `fastmenu` service with the cluster's preferred ingress or gateway layer.
 
+## Deploy With A Load Balancer
+
+Use this for clusters that already have load balancer IPs configured, such as an NKP cluster with a load balancer address pool:
+
+```bash
+kubectl apply -k https://github.com/pinoluen-netizen/fastmenu//k8s/overlays/loadbalancer?ref=main
+kubectl rollout status deployment/fastmenu -n fastmenu
+kubectl get svc fastmenu -n fastmenu --watch
+```
+
+When `EXTERNAL-IP` shows an address from the load balancer pool, open:
+
+```text
+http://EXTERNAL-IP
+```
+
 ## Deploy With A Specific Image
 
 Use this when you want to deploy a commit-specific tag or another registry:
