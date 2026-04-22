@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FastMenu - Order Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2f3131",
+                        "surface-dim": "#dadada",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb4a4",
+                        "primary-fixed-dim": "#ffb4a4",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#e4beb6",
+                        "on-background": "#1a1c1c",
+                        "surface-bright": "#f9f9f9",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-container": "#002f3a",
+                        "inverse-on-surface": "#f1f1f1",
+                        "background": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#b0ecff",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-variant": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#004e5e",
+                        "secondary-fixed": "#e5e2e1",
+                        "primary": "#b72301",
+                        "surface-container-highest": "#e2e2e2",
+                        "error": "#ba1a1a",
+                        "surface-container": "#eeeeee",
+                        "secondary-container": "#e5e2e1",
+                        "outline": "#8f7069",
+                        "on-tertiary-fixed": "#001f27",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "primary-container": "#ff5733",
+                        "error-container": "#ffdad6",
+                        "secondary": "#5f5e5e",
+                        "on-surface-variant": "#5b403a",
+                        "surface-container-low": "#f3f3f3",
+                        "tertiary": "#00677c",
+                        "primary-fixed": "#ffdad3",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#60d5f5",
+                        "on-secondary-fixed-variant": "#474646",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#009fbd",
+                        "surface-tint": "#b72301",
+                        "on-primary-fixed-variant": "#8c1800",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-secondary-container": "#656464",
+                        "on-primary-container": "#580c00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "base": "4px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "margin": "32px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Inter"],
+                        "h3": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "h1": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "h3": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "h1": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-zinc-950 text-orange-500 dark:text-orange-400 font-sans antialiased text-sm font-medium docked full-width top-0 border-b border-zinc-100 dark:border-zinc-800 shadow-sm dark:shadow-none flex justify-between items-center h-16 px-6 w-full sticky top-0 z-50">
+<div class="flex items-center gap-lg">
+<div class="text-2xl font-black tracking-tighter text-orange-600 dark:text-orange-500">FastMenu</div>
+<nav class="hidden md:flex items-center gap-lg h-full pt-4">
+<a class="text-orange-600 dark:text-orange-400 border-b-2 border-orange-600 dark:border-orange-400 pb-4 -mb-4 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all active:scale-95 duration-150 ease-in-out" href="#">Order Menu</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors pb-4 -mb-4 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all active:scale-95 duration-150 ease-in-out" href="#">Kitchen Prep</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors pb-4 -mb-4 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all active:scale-95 duration-150 ease-in-out" href="#">Dispatch History</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all active:scale-95 duration-150 ease-in-out p-sm rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all active:scale-95 duration-150 ease-in-out p-sm rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Staff Profile" class="w-full h-full object-cover" data-alt="professional headshot of a person with a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKi04lR6LCSkCRf6_NejKtmvFnx1uKCfi4Yk6qbKfdJnhjiqz98AGX1EneY0qo8PR2ya4WaaDtPLbFoQ43fuB_a9VUMm7zivwD-Q0aLZcmsqtZTzIjyAympSqCHcZrtuKmN7TKiq2FiNrnjXLhRySsc39QjZrPk_5DvEFjxxn7NiTLBNtOuTlKCfZDJrAihOoXvXXEyEtXDOEEZLUyw8KxrFpFqW67WQVLq9f4L4Bf7C463LGwAwIbmptCfXqMSbNUmXF0G_7BcM4"/>
+</div>
+</div>
+</header>
+<main class="flex-1 flex overflow-hidden">
+<!-- Menu Canvas -->
+<div class="flex-1 overflow-y-auto p-margin">
+<div class="mb-lg flex justify-between items-end">
+<div>
+<h1 class="font-h1 text-h1 text-on-background mb-sm">Order Menu</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Select items to add to the current order.</p>
+</div>
+<div class="flex gap-sm overflow-x-auto pb-sm">
+<button class="px-md py-sm bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface whitespace-nowrap active:scale-95 transition-transform">All Items</button>
+<button class="px-md py-sm bg-surface-container-lowest border border-outline-variant rounded-full font-label-md text-label-md text-on-surface whitespace-nowrap active:scale-95 transition-transform">Mains</button>
+<button class="px-md py-sm bg-surface-container-lowest border border-outline-variant rounded-full font-label-md text-label-md text-on-surface whitespace-nowrap active:scale-95 transition-transform">Sides</button>
+<button class="px-md py-sm bg-surface-container-lowest border border-outline-variant rounded-full font-label-md text-label-md text-on-surface whitespace-nowrap active:scale-95 transition-transform">Drinks</button>
+</div>
+</div>
+<!-- Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)] transition-shadow">
+<div class="h-48 relative">
+<img alt="Classic Cheeseburger" class="w-full h-full object-cover" data-alt="high quality close up of a juicy classic cheeseburger with lettuce tomato and melted cheese on a wooden board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlDMTkMtuOQjPg_rtj722UnDdZamWyhnk17PotetF5Zq16D7F05rmySmKskAXjt_bvRIQQCYlC-EcLIHicAt1N84-0EUD8JoSVB4xNv6ISJKy2OrpCi0atHQ25EPFRKF6OmOqBJXUF_QikPXgymWeloDrbbmcU9XhazdkkkZUjX1ZgvwHIExzZubh5J1N8yo2isugffbdAHdNb9n8C6Kce1S8lnEJ9VLVikEDPxtSlrudWV40hmH9BXi_GwDSDh_5lpGlKXgjfL9M"/>
+<div class="absolute top-sm right-sm bg-surface-container-lowest/90 backdrop-blur-sm px-sm py-xs rounded-full flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Popular</span>
+</div>
+</div>
+<div class="p-md flex flex-col flex-1">
+<div class="flex justify-between items-start mb-sm">
+<h3 class="font-h3 text-h3 text-on-background">Classic Burger</h3>
+<span class="font-h3 text-h3 text-primary-container">$12.50</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex-1 line-clamp-2">Angus beef patty, cheddar, lettuce, tomato, house sauce on a brioche bun.</p>
+<div class="mt-md flex justify-between items-center">
+<div class="flex gap-xs">
+<span class="px-sm py-xs bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant">Beef</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:bg-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)] transition-shadow">
+<div class="h-48 relative">
+<img alt="Crispy Chicken Sandwich" class="w-full h-full object-cover" data-alt="crispy fried chicken sandwich with pickles and mayo on a toasted bun with soft background lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzQHarwtqWAEuXLAnhhNuiaSWb-diEEO6H0-JJnmqi6nOCy2gDz74G-ipHUCNagZcwVaABfh8ruM0sYbflLLXmHRhyGXGlCwmfmKuX1VlYnQDNE08AD7r08MxEZTQ8P63cFUpoN3l8fLroDbnu-rkm38T9KbhO_GKE2VQlVgy5U2Oy2NK-Fw7edQAS8rUNjeVtL-c14EYTgJSV4H3kJ2DSiuVHazUmyol0Kzp3MsHe-d4mygCVUsfgXWvGoSit8DxeXUXPXeUGU2A"/>
+</div>
+<div class="p-md flex flex-col flex-1">
+<div class="flex justify-between items-start mb-sm">
+<h3 class="font-h3 text-h3 text-on-background">Crispy Chicken</h3>
+<span class="font-h3 text-h3 text-primary-container">$14.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex-1 line-clamp-2">Buttermilk fried chicken breast, pickles, spicy mayo, toasted bun.</p>
+<div class="mt-md flex justify-between items-center">
+<div class="flex gap-xs">
+<span class="px-sm py-xs bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant">Spicy</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:bg-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)] transition-shadow">
+<div class="h-48 relative">
+<img alt="Quinoa Salad Bowl" class="w-full h-full object-cover" data-alt="fresh colorful quinoa salad bowl with avocado tomatoes and leafy greens in a bright airy setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBevJDX1N0M4lVjy8xPK_flyL0UdesILohBaKqiw894epcS9XtG0P4hEVeconq5rEUMiphFi9Y4OfxkntnuziDkz2vlx3Dzr8E36VqoA3pc3d8bBFUqoZCdQmdhfZ5SF-oWyi38TOzlFwIKjru0xYhCgjcTgezbL0qsNKU9lTEYyTNW3oE8LXUtUMehJ6_OvQZhEHjhaqvCIzUCQzjPRnydC_5oX7HXK3XWO4KaCciahwWJgL66pB6K3tEfSJdQUo2fpchE838l1s"/>
+<div class="absolute top-sm right-sm bg-surface-container-lowest/90 backdrop-blur-sm px-sm py-xs rounded-full flex items-center gap-xs">
+<span class="font-label-sm text-label-sm text-on-surface">Vegan</span>
+</div>
+</div>
+<div class="p-md flex flex-col flex-1">
+<div class="flex justify-between items-start mb-sm">
+<h3 class="font-h3 text-h3 text-on-background">Quinoa Bowl</h3>
+<span class="font-h3 text-h3 text-primary-container">$11.50</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex-1 line-clamp-2">Mixed greens, quinoa, roasted sweet potato, avocado, tahini dressing.</p>
+<div class="mt-md flex justify-between items-center">
+<div class="flex gap-xs">
+<span class="px-sm py-xs bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant">GF</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:bg-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)] transition-shadow">
+<div class="h-48 relative">
+<img alt="Truffle Fries" class="w-full h-full object-cover" data-alt="golden crispy french fries tossed with herbs in a metal basket on a dark table surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuzjxfFb9c78firpafnyMp5ZqwT7R4HcpD9OekMZ5jBuD7tH7hz7l2dqBC_Fzb8-NCuuKG4SpCpW3abSOExL_q8HIvz4O5CyF4f2H-6jjmeirBIZ81-XTGEw2KZMYBZBlxF4uWYCAsI6cPNFKDQNaM9o-EV0pBJ0Dvvb5XEWVVyo6XOjAlJqVv8caRnGiZ4XiPCyBMutbVhe-Sdgwswy5VcxgW2lBUlF4BMqSQZdm6Y2B0Red0u1Rr2ZAUlZL2E0b-b5en_pxd050"/>
+</div>
+<div class="p-md flex flex-col flex-1">
+<div class="flex justify-between items-start mb-sm">
+<h3 class="font-h3 text-h3 text-on-background">Truffle Fries</h3>
+<span class="font-h3 text-h3 text-primary-container">$6.50</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex-1 line-clamp-2">Crispy shoestring fries tossed in truffle oil and parmesan cheese.</p>
+<div class="mt-md flex justify-between items-center">
+<div class="flex gap-xs">
+<span class="px-sm py-xs bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant">Side</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:bg-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar / Current Selection -->
+<aside class="w-80 bg-surface-container-lowest border-l border-outline-variant shadow-[0_0_24px_rgba(0,0,0,0.05)] flex flex-col hidden lg:flex">
+<div class="p-md border-b border-outline-variant bg-surface-bright">
+<h2 class="font-h2 text-h2 text-on-background mb-xs">Current Order</h2>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="table_restaurant">table_restaurant</span>
+<input class="w-full h-12 bg-surface-container px-sm rounded border-transparent focus:border-on-surface focus:ring-0 font-body-md text-body-md text-on-surface placeholder-on-surface-variant transition-colors" placeholder="Table Number" type="text"/>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-md bg-surface-bright flex flex-col gap-sm">
+<!-- Selected Item 1 -->
+<div class="bg-surface-container-lowest p-sm rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.05)] border border-outline-variant/30 flex gap-sm items-center">
+<div class="w-12 h-12 rounded bg-surface-container overflow-hidden shrink-0">
+<img alt="Classic Burger Mini" class="w-full h-full object-cover" data-alt="close up of classic burger for thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1l4BULd0_U27G0aaht3VCrFNqaO_d_aeJZeG2BDoADdjVCp57kuD8MMkP6tu9iOApYsNt8gnkoFLJqIwg_teyBWbaSHXcrPccxsup9ms8kw5chv1Af9PpONR0T2uFhU9VSSqfIcraKFvelWcGkbdyuEeET66RoRKOR4smHWpU5EFATbVWo9XPPwHvgZgKiMgpfEikpTWxXonGIzKbPZ0nLNBukhZhf_vUojOQRhKwTWX4nzYQvFP86rWocSL6pS1-IbcdSII4fN4"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-label-md text-label-md text-on-background truncate">Classic Burger</h4>
+<span class="font-label-sm text-label-sm text-primary-container">$12.50</span>
+</div>
+<div class="flex items-center gap-xs bg-surface-container rounded-full px-xs py-1">
+<button class="w-6 h-6 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-dim transition-colors"><span class="material-symbols-outlined text-[16px]" data-icon="remove">remove</span></button>
+<span class="font-label-md text-label-md text-on-surface w-4 text-center">1</span>
+<button class="w-6 h-6 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-dim transition-colors"><span class="material-symbols-outlined text-[16px]" data-icon="add">add</span></button>
+</div>
+</div>
+<!-- Selected Item 2 -->
+<div class="bg-surface-container-lowest p-sm rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.05)] border border-outline-variant/30 flex gap-sm items-center">
+<div class="w-12 h-12 rounded bg-surface-container overflow-hidden shrink-0">
+<img alt="Truffle Fries Mini" class="w-full h-full object-cover" data-alt="close up of fries for thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI05xUhnkFfbdBPJ3_73QC-bGs5x_RlsXx02GGj4c6XC4RLr6T-0lKUtPIZf68KQXy48qi8IT2xmpXx5p1Tp9IGtZrzoONQ1odiObwHoLwbqLZ1-t9RvNbbsDA1zBNjOoF1V0RHEBvnEpOnxcvOwcxg3PzU8vgLdGoDmwHqeQZPrKDVeBg3-3r2IBvZfgV5WD8WqHF2ZIwNLrpNAAaC-E5BbJYUZZmrbz6-MubAz1y8-ZyxeJKzt3X1ExfulZcWhTvpzIMYPzYXBg"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-label-md text-label-md text-on-background truncate">Truffle Fries</h4>
+<span class="font-label-sm text-label-sm text-primary-container">$6.50</span>
+</div>
+<div class="flex items-center gap-xs bg-surface-container rounded-full px-xs py-1">
+<button class="w-6 h-6 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-dim transition-colors"><span class="material-symbols-outlined text-[16px]" data-icon="remove">remove</span></button>
+<span class="font-label-md text-label-md text-on-surface w-4 text-center">2</span>
+<button class="w-6 h-6 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-dim transition-colors"><span class="material-symbols-outlined text-[16px]" data-icon="add">add</span></button>
+</div>
+</div>
+</div>
+<div class="p-md border-t border-outline-variant bg-surface-container-lowest">
+<div class="flex justify-between items-center mb-sm">
+<span class="font-body-md text-body-md text-on-surface-variant">Subtotal</span>
+<span class="font-body-md text-body-md text-on-background">$25.50</span>
+</div>
+<div class="flex justify-between items-center mb-md">
+<span class="font-body-md text-body-md text-on-surface-variant">Tax</span>
+<span class="font-body-md text-body-md text-on-background">$2.04</span>
+</div>
+<div class="flex justify-between items-center mb-md pt-sm border-t border-outline-variant/50">
+<span class="font-h3 text-h3 text-on-background">Total</span>
+<span class="font-h3 text-h3 text-primary-container">$27.54</span>
+</div>
+<button class="w-full py-md bg-primary-container text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary transition-colors active:scale-95 flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                    Confirm Order
+                </button>
+</div>
+</aside>
+</main>
+</body></html>

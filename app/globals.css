@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background: #f9f9f9;
+  color: #1a1c1c;
+  font-family: Inter, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+@keyframes order-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 0.62;
+    transform: scaleX(0.985);
+  }
+}
+
+.order-progress-live {
+  animation: order-pulse 1.25s ease-in-out infinite;
+}
